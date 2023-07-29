@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-height: 98vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #e5e5f7;
+            opacity: 1;
+            background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 10px ), repeating-linear-gradient( #444cf755, #444cf7 );
+        }
+        pre{
+            line-height: 8px;
+            width: 90vw;
+            height: 90vh;
+            overflow: auto;
+            background-color: white;
+        }
+        #pre-parent{
+            display: none;
+            margin-top: 1rem;
+            /* box-shadow: 0 4px 15px 2px black; */
+            border: 1px solid rgba(0, 0, 0, 0.527);
+        }
+        #input{
+            text-align: center;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        #input button, input::file-selector-button{
+            background-color: #444cf7;
+            outline: none;
+            border: none;
+            color: white;
+            padding: 10px 0 10px 0;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-radius: 8px;
+        }
+        input[type="number"]{
+            border: 1px solid #444cf7;
+            border-radius: 8px;
+            outline: none;
+            padding: 10px 0px 10px 8px;
+
+        }
+        input::file-selector-button{
+            padding: 10px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div id="input">
+        <h4>Image to ASCII</h4>
+        <input type="file" id="imageinp" accept="image/png, image/jpg, image/jpeg"/>
+        <input type="number" id="offsetx" placeholder="OffsetX" value="4">
+        <input type="number" id="offsety" placeholder="OffsetY" value="4">
+        <input type="number" id="lh" placeholder="Line height" value="8">
+        <button id="convert" onclick="convertImage()">Convert</button>
+    </div>
+    
+    <div id="pre-parent">
+        <button onclick="copy_pre()">Copy</button>
+        <pre></pre>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
