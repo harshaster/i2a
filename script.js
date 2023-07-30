@@ -62,7 +62,7 @@ function toimg(){
         var image = canvas.toDataURL()
         var a = document.createElement('a')
         a.href = image
-        a.download = 'ascii.svg'
+        a.download = 'ascii.png'
         a.click()
         pre.style.width=90+'vw'
         pre.style.height=90+'vh'
