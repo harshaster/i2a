@@ -45,6 +45,31 @@ function copy_pre(){
     navigator.clipboard.writeText(ascii)
 }
 
+function totxt(){
+    const pre = document.getElementsByTagName('pre')[0]
+    var blob = new Blob([pre.innerText], {type: "text/plain;charset=utf-8"});
+    var a = document.createElement('a')
+    a.href = URL.createObjectURL(blob)
+    a.download = 'ascii.txt'
+    a.click()
+}
+
+function toimg(){
+    const pre = document.getElementsByTagName('pre')[0]
+    pre.style.width=100+'%'
+    pre.style.height=100+'%'
+    html2canvas(pre).then(function(canvas) {
+        var image = canvas.toDataURL()
+        var a = document.createElement('a')
+        a.href = image
+        a.download = 'ascii.svg'
+        a.click()
+        pre.style.width=90+'vw'
+        pre.style.height=90+'vh'
+    })
+    
+}
+
 function getASCII(imageData, ox, oy){
     
     const chars = ['@', '#', 'S',  '%', '?', '*', '+', ';', ':', ',', '.']
